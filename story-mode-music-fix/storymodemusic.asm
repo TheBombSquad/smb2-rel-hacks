@@ -4,7 +4,7 @@ bl $setLoopingParam				% does not need fixoverwrite (replaces li)
 #function $stageSelectInject 0x39a0		% stop music fade-out after selecting 'stage select'
 nop						% does not need fixoverwrite (idk why)
 
-#function $pauseMenuVolInject 0x331a8	% stop music volume from decreasing after pressing pause
+#function $pauseMenuVolInject 0x331a8		% stop music volume from decreasing after pressing pause
 nop						% does not need fixoverwrite (replaces stfs)
 
 #function $setLoopingParam 0x207f50		% sets looping parameter based on current main_mode
