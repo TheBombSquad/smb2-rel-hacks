@@ -14,22 +14,22 @@ These modifications fix or modify the game in ways that may be beneficial to tho
 ## Requirements
 In order to apply these modifications to a pack, you'll need TwixNinja's ppcinject and FixOverwrites programs:
 
-*[ppcinject](https://github.com/tuckergs/ppc-inject)
+* [ppcinject](https://github.com/tuckergs/ppc-inject)
 
-*[smb2-relmod (contains FixOverwrites)](https://github.com/tuckergs/smb2-relmod)
+* [smb2-relmod (contains FixOverwrites)](https://github.com/tuckergs/smb2-relmod)
 
 Additionally, if you want to use cmmod, or other REL-modifying tools, it is recommended that these are applied *before* applying any of the patches here. Otherwise, it is possible that the changes may be overwritten.
 
 ## Usage
 To apply these patches, execute the following commands for each patch. `./` may need to be replaced with `.\` in Windows Powershell, or omitted in the Windows command prompt. It also may be replaced with a path to the specified executables. The name of the .rel file may also be replaced with a path to the target .rel file.
 
-You'll need a source mkb2.main_loop.rel as an input. Replace your game's .rel with the final .rel created by running the commands. You should be able to apply multiple patches without conflicts. Please note that no-hurry-up music modifies *mkb2.main_game.rel*, NOT main_loop.
+You'll need a source mkb2.main_loop.rel as an input. Replace your game's .rel with the final .rel created by running the commands. You should be able to apply multiple patches without conflicts. Please note that `no-hurry-up-music` modifies *mkb2.main_game.rel*, NOT main_loop.
 
 Any files created with _temp in the name may be removed after executing the specific commands.
 
 | Patch | Commands |
 | ----- | -------- |
-| perfect-bonus-completion | `./FixOverwrites mkb2.main_loop.rel 0x80296fc4 0x80296fc8 mkb2.main_loop_temp.rel`<br><br> `./PPCInject mkb2.main_loop_temp.rel mkb2.main_loop_perfect.rel perfect.asm` |
+| perfect-bonus-completion | `./FixOverwrites mkb2.main_loop.rel 0x80296fc4 0x80296fc8 mkb2.main_loop_temp.rel`> <br> `./PPCInject mkb2.main_loop_temp.rel mkb2.main_loop_perfect.rel perfect.asm` |
 | remove-desert-haze | `./PPCInject mkb2.main_loop.rel mkb2.main_loop_removehaze.rel removehaze.asm` |
 | story-mode-music-fix | `./PPCInject mkb2.main_loop.rel mkb2.main_loop_musicfix.rel storymodemusic.asm` |
 | no-hurry-up-music | `./PPCInject mkb2.main_game.rel mkb2.main_game_hurryupfix.rel nohurryup.asm` |
