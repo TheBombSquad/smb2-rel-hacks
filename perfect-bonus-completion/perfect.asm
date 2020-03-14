@@ -12,7 +12,7 @@
 #function $injection 0x26EC4
 bl $perfectCheck
 
-#function $perfectCheck 0x207F50
+#function $perfectCheck 0x218b50
 .loc1
 lis r3, 0x8055
 addi r4, r3, 14704

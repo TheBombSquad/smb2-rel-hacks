@@ -7,7 +7,7 @@ nop						% does not need fixoverwrite (idk why)
 #function $pauseMenuVolInject 0x331a8		% stop music volume from decreasing after pressing pause
 nop						% does not need fixoverwrite (replaces stfs)
 
-#function $setLoopingParam 0x207fa0		% sets looping parameter based on current main_mode
+#function $setLoopingParam 0x21ad88		% sets looping parameter based on current main_mode
 addis r3, r2, 0x3a				% loads top half of main_mode address
 ori r3, r3, 0xdc34				% loads bottom half of the main_mode address
 lwz r3, 0(r3)					% loads the value of main_mode

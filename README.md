@@ -9,6 +9,7 @@ These modifications fix or modify the game in ways that may be beneficial to tho
 | perfect-bonus-completion | When the number of bananas remaining on a stage that is marked as a bonus stage hits zero, the stage is completed with a 'Perfect' pop-up and voice line, identical to SMB1. |
 | remove-desert-haze | Removes the heat haze on levels in theme ID 7 (sand). Indirectly fixes the widescreen issue with heat haze.
 | story-mode-music-fix | Prevents the world music from being interrupted by the stage select music in Story Mode. Also prevents the volume of the music from being lowered when the game is paused. The 'nopause' version of this patch does not have the aforementioned feature. |
+| story-mode-char-select | Allows the player to select between the four playable monkeys in Story Mode. |
 | no-hurry-up-music | Stops the 'hurry up' music from playing. |
 
 ## Requirements
@@ -18,12 +19,14 @@ In order to apply these modifications to a pack, you'll need TwixNinja's ppcinje
 
 * [smb2-relmod (contains FixOverwrites)](https://github.com/tuckergs/smb2-relmod)
 
+Any patch that utilizes 'FixOverwrites' should be applied before any other patch.
+
 Additionally, if you want to use cmmod, or other REL-modifying tools, it is recommended that these are applied *before* applying any of the patches here. Otherwise, it is possible that the changes may be overwritten.
 
 ## Usage
 To apply these patches, execute the following commands for each patch. `./` may need to be replaced with `.\` in Windows Powershell, or omitted in the Windows command prompt. It also may be replaced with a path to the specified executables. The name of the .rel file may also be replaced with a path to the target .rel file.
 
-You'll need a source mkb2.main_loop.rel as an input. Replace your game's .rel with the final .rel created by running the commands. You should be able to apply multiple patches without conflicts. Please note that `no-hurry-up-music` modifies *mkb2.main_game.rel*, NOT main_loop.
+You'll need a source mkb2.main\_loop.rel as an input. Replace your game's .rel with the final .rel created by running the commands. You should be able to apply multiple patches without conflicts. Please note that `no-hurry-up-music` modifies *mkb2.main_game.rel*, NOT main\_loop.
 
 Any files created with _temp in the name may be removed after executing the specific commands.
 
@@ -32,6 +35,7 @@ Any files created with _temp in the name may be removed after executing the spec
 | perfect-bonus-completion | `./FixOverwrites mkb2.main_loop.rel 0x80296fc4 0x80296fc8 mkb2.main_loop_temp.rel` <br> `./PPCInject mkb2.main_loop_temp.rel mkb2.main_loop_perfect.rel perfect.asm` |
 | remove-desert-haze | `./PPCInject mkb2.main_loop.rel mkb2.main_loop_removehaze.rel removehaze.asm` |
 | story-mode-music-fix | `./PPCInject mkb2.main_loop.rel mkb2.main_loop_musicfix.rel storymodemusic.asm` |
+| story-mode-char-select | `./PPCInject mkb2.main_loop.rel mkb2.main_loop_charsel.rel story-mode-char-select-mainloop.asm` <br> `./PPCInject mkb2.main_game.rel mkb2.main_game_charsel.rel story-mode-char-select-maingame.asm` |
 | no-hurry-up-music | `./PPCInject mkb2.main_game.rel mkb2.main_game_hurryupfix.rel nohurryup.asm` |
 
 ## Gecko Codes
