@@ -64,8 +64,14 @@ b .end
 
                         % story mode only initalizes when mode_cnt is 1, otherwise it glitches out
 .store
-stb r11, 0(r9)          % set mode_cnt to 1 when A is pressed, otherwise set it to 2 when B is pressed
+lis r12, 0x8094			% checks if a character has been selected
+ori r12, r12, 0x9cbe
+lbz r12, 0(r12)
+or r10, r12, r11		% check if B is pressed and if a character has been selected
+cmpwi r10, 0x3			% prevents mode_cnt from being modified during fadeout
+beq .end
 
+stb r11, 0(r9)          % set mode_cnt to 1 when A is pressed, otherwise set it to 2 when B is pressed
 li r10, 0x7             % sets return screen to 7 so data select menu returns properly
 stb r10, 2(r9)
 
