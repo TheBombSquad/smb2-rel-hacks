@@ -1,7 +1,7 @@
 #function $chgNxtScrnInject 0x12cd0
 b $changeNextScreen
 
-#function $changeNextScreen 0x21ad88
+#function $changeNextScreen 0x21b098
 
 lis r9, 0x8092          
 ori r9, r9, 0x1a20
@@ -75,7 +75,7 @@ blr
 #function $preloadMonkeyInject3 0x16aefc
 bl $getCurrentMonkeyId  % pre-load correct monkey after cutscene ends
 
-#function $getCurrentMonkeyId 0x21aee0
+#function $getCurrentMonkeyId 0x21b3b4
 lis r9, 0x805b
 ori r9, r9, 0xd7bb
 lbz r3, 0(r9)
