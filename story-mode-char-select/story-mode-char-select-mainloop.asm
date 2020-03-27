@@ -1,7 +1,7 @@
 #function $chgNxtScrnInject 0x12cd0
 b $changeNextScreen
 
-#function $changeNextScreen 0x218da4
+#function $changeNextScreen 0x21ad88
 
 lis r9, 0x8092          
 ori r9, r9, 0x1a20
@@ -17,20 +17,54 @@ lbz r10, 0(r9)
 cmpwi r10, 0x6          % check if the current screen is the story mode character select screen
 bne .end
 
-lis r9, 0x8054
+lis r9, 0x8054		
 ori r9, r9, 0xdf84      % get address of mode_cnt
-lis r10, 0x8014
-ori r10, r10, 0x5120    % get address of button inputs
+
+lis r10, 0x8014         % controller 1
+ori r10, r10, 0x5120    % get address of button inputs (controller 1)
 lbz r10, 0(r10)         % get button inputs
-andi r10, r10, 0x1      % check if A is pressed
-cmpwi r10, 0x1          
+andi r11, r10, 0x1      % check if A is pressed
+cmpwi r11, 0x1          
 beq .store
-cmpwi r10, 0x2
+andi r11, r10, 0x2		% check if B is pressed
+cmpwi r11, 0x2
+beq .store 
+
+lis r10, 0x8014
+ori r10, r10, 0x515c	% controller 2
+lbz r10, 0(r10)			
+andi r11, r10, 0x1      % check if A is pressed
+cmpwi r11, 0x1          
 beq .store
+andi r11, r10, 0x2		% check if B is pressed
+cmpwi r11, 0x2
+beq .store 
+
+lis r10, 0x8014
+ori r10, r10, 0x5198	% controller 3
+lbz r10, 0(r10)			
+andi r11, r10, 0x1      % check if A is pressed
+cmpwi r11, 0x1          
+beq .store
+andi r11, r10, 0x2		% check if B is pressed
+cmpwi r11, 0x2
+beq .store 
+
+lis r10, 0x8014
+ori r10, r10, 0x51d4	% controller 4
+lbz r10, 0(r10)			
+andi r11, r10, 0x1      % check if A is pressed
+cmpwi r11, 0x1          
+beq .store
+andi r11, r10, 0x2		% check if B is pressed
+cmpwi r11, 0x2
+beq .store 
+
 b .end
+
                         % story mode only initalizes when mode_cnt is 1, otherwise it glitches out
 .store
-stb r10, 0(r9)          % set mode_cnt to 1 when A is pressed, otherwise set it to 2 when B is pressed
+stb r11, 0(r9)          % set mode_cnt to 1 when A is pressed, otherwise set it to 2 when B is pressed
 
 li r10, 0x7             % sets return screen to 7 so data select menu returns properly
 stb r10, 2(r9)
@@ -41,7 +75,7 @@ blr
 #function $preloadMonkeyInject3 0x16aefc
 bl $getCurrentMonkeyId  % pre-load correct monkey after cutscene ends
 
-#function $getCurrentMonkeyId 0x218e14
+#function $getCurrentMonkeyId 0x21aee0
 lis r9, 0x805b
 ori r9, r9, 0xd7bb
 lbz r3, 0(r9)
