@@ -11,6 +11,8 @@ These modifications fix or modify the game in ways that may be beneficial to tho
 | story-mode-music-fix | Prevents the world music from being interrupted by the stage select music in Story Mode. Also prevents the volume of the music from being lowered when the game is paused. The 'nopause' version of this patch does not have the aforementioned feature. |
 | story-mode-char-select | Allows the player to select between the four playable monkeys in Story Mode. |
 | no-hurry-up-music | Stops the 'hurry up' music from playing. |
+| fix-revolution-slot | Removes hardcoded elements from Revolution's level slot. |
+| fix-labyrinth-camera | Fixes the lower-angle camera hardcoded to Labyrinth's level slot. |
 
 ## Requirements
 In order to apply these modifications to a pack, you'll need TwixNinja's ppcinject and FixOverwrites programs:
@@ -37,9 +39,11 @@ Any files created with _temp in the name may be removed after executing the spec
 | story-mode-music-fix | `./PPCInject mkb2.main_loop.rel mkb2.main_loop_musicfix.rel storymodemusic.asm` |
 | story-mode-char-select | `./PPCInject mkb2.main_loop.rel mkb2.main_loop_charsel.rel story-mode-char-select-mainloop.asm` <br> `./PPCInject mkb2.main_game.rel mkb2.main_game_charsel.rel story-mode-char-select-maingame.asm` |
 | no-hurry-up-music | `./PPCInject mkb2.main_game.rel mkb2.main_game_hurryupfix.rel nohurryup.asm` |
+| fix-revolution-slot | `./PPCInject mkb2.main_loop.rel mkb2.main_loop_fixedslot.rel fix-revolution-slot.asm` |
+| fix-labyrinth-camera | `./PPCInject mkb2.main_loop.rel mkb2.main_loop_fixedlabyrinth.rel fix-labyrinth-camera.asm` |
 
 ## Gecko Codes
-These patches can also be applied using Gecko codes. This will result in the same functionality as these patches, albeit only when the code is active. These may also cause issues with party games, as they are not tied to the location of the currently loaded REL.
+Some of these patches can also be applied using Gecko codes. This will result in the same functionality as these patches, albeit only when the code is active. These may also cause issues with party games, as they are not tied to the location of the currently loaded REL.
 
 #### perfect-bonus-completion
 ```
