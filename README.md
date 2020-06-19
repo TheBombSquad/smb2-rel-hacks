@@ -1,5 +1,5 @@
 # smb2-rel-hacks
-This is a collection of various modifications to the mkb2.main\_loop.rel file in Super Monkey Ball 2.
+This is a collection of various modifications to the mkb2.main\_loop.rel and mkb2.main\_game.rel files in Super Monkey Ball 2.
 
 ## Purpose
 These modifications fix or modify the game in ways that may be beneficial to those who wish to create custom level packs. Here is a description of what each patch does:
@@ -13,6 +13,7 @@ These modifications fix or modify the game in ways that may be beneficial to tho
 | no-hurry-up-music | Stops the 'hurry up' music from playing. |
 | fix-revolution-slot | Removes hardcoded elements from Revolution's level slot. |
 | fix-labyrinth-camera | Fixes the lower-angle camera hardcoded to Labyrinth's level slot. |
+| challenge-mode-death-count | Challenge mode has infinite lives, and the life counter is converted into a counter that tracks the number of deaths. |
 
 ## Requirements
 In order to apply these modifications to a pack, you'll need TwixNinja's ppcinject and FixOverwrites programs:
@@ -26,7 +27,7 @@ Any patch that utilizes 'FixOverwrites' should be applied before any other patch
 Additionally, if you want to use cmmod, or other REL-modifying tools, it is recommended that these are applied *before* applying any of the patches here. Otherwise, it is possible that the changes may be overwritten.
 
 ## Usage
-To apply these patches, execute the following commands for each patch. `./` may need to be replaced with `.\` in Windows Powershell, or omitted in the Windows command prompt. It also may be replaced with a path to the specified executables. The name of the .rel file may also be replaced with a path to the target .rel file.
+To apply these patches, execute the following commands for each patch in your terminal (Command Prompt or Powershell if you are using Windows). `./` may need to be replaced with `.\` in Windows Powershell, or omitted in the Windows Command Prompt. It also may be replaced with a path to the specified executables. The name of the .rel file may also be replaced with a path to the target .rel file.
 
 You'll need a source mkb2.main\_loop.rel as an input. Replace your game's .rel with the final .rel created by running the commands. You should be able to apply multiple patches without conflicts. Please note that `no-hurry-up-music` modifies *mkb2.main_game.rel*, NOT main\_loop.
 
@@ -41,6 +42,7 @@ Any files created with _temp in the name may be removed after executing the spec
 | no-hurry-up-music | `./PPCInject mkb2.main_game.rel mkb2.main_game_hurryupfix.rel nohurryup.asm` |
 | fix-revolution-slot | `./PPCInject mkb2.main_loop.rel mkb2.main_loop_fixedslot.rel fix-revolution-slot.asm` |
 | fix-labyrinth-camera | `./PPCInject mkb2.main_loop.rel mkb2.main_loop_fixedlabyrinth.rel fix-labyrinth-camera.asm` |
+| challenge-mode-death-count | `./FixOverwrites mkb2.main_loop.rel 0x8033ad28 0x8033ad6c mkb2.main_loop_temp.rel` <br> `./PPCInject mkb2.main_loop_temp.rel mkb2.main_loop_deathcount.rel challenge-mode-death-count-mainloop.asm` <br> `./PPCInject mkb2.main_game.rel mkb2.main_game_deathcount.rel challenge-mode-death-count-maingame.asm` | 
 
 ## Gecko Codes
 Some of these patches can also be applied using Gecko codes. This will result in the same functionality as these patches, albeit only when the code is active. These may also cause issues with party games, as they are not tied to the location of the currently loaded REL.

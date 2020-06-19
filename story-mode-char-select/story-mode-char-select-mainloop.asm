@@ -1,7 +1,7 @@
 #function $chgNxtScrnInject 0x12cd0
 b $changeNextScreen
 
-#function $changeNextScreen 0x21b098
+#function $changeNextScreen 0x21c120
 
 lis r9, 0x8092          
 ori r9, r9, 0x1a20
