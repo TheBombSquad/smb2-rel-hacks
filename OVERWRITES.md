@@ -6,6 +6,7 @@ purposes, as well as to prevent conflicts.
 Region | Size | Patch | Function/Variable | FixOverwrites Needed
 ----- | ----- | ----- | ----- | -----
 `0x39a0 - 0x39a4` | `0x4` | `story-mode-music-fix` | `afterGoalInject` | `false`
+`0xbab0 - 0xbab4` | `0x4` | `disable-how-to-play-screen` | `disableModeCounterDecrement` | `false`
 `0x12cd0 - 0x12cd4` | `0x4` | `story-mode-char-select` | `chgNxtScrnInject` | `false`
 `0x157d4 - 0x157d8` | `0x4` | `fix-labyrinth-camera` | `injection1` | `false`
 `0x173bc - 0x173c0` | `0x4` | `fix-labyrinth-camera` | `injection2` | `false`
@@ -34,7 +35,7 @@ Region | Size | Patch | Function/Variable | FixOverwrites Needed
 `0xcac28 - 0xcac70` | `0x48` | `challenge-mode-death-count` | `visualCounterInject` | `true`
 `0x16aefc - 0x16af00` | `0x4` | `story-mode-char-select` | `preloadMonkeyInject3` | `false`
 `0x218b50 - 0x218b80` | `0x30` | `perfect-bonus-completion` | `perfectCheck` | `false`
-`0x21b3b4 - 0x21b3b8` | `0x4` | `story-mode-char-select` | `getCurrentMonkeyId` | `false`
+`0x21b3b4 - 0x21b3c4` | `0x10` | `story-mode-char-select` | `getCurrentMonkeyId` | `false`
 `0x21c120 - 0x21c210` | `0xf0` | `story-mode-char-select` | `changeNextScreen` | `false`
 `0x21ad88 - 0x21add8` | `0x50` | `story-mode-music-fix` | `setLoopingParam` | `false`
 
