@@ -30,11 +30,15 @@ Region | Size | Patch | Function/Variable | FixOverwrites Needed
 `0x26ec4 - 0x26ec8` | `0x4` | `perfect-bonus-completion` | `injection` | `true`
 `0x331a8 - 0x331ac` | `0x4` | `story-mode-music-fix` | `pauseMenuVolInject` | `false`
 `0x35b34 - 0x35b38` | `0x4` | `story-mode-music-fix` | `afterGoalInject` | `false`
+`0x58be4 - 0x58be8` | `0x4` | `fix-wormhole-surfaces` | `injection1` | `false`
+`0x59334 - 0x59338` | `0x4` | `fix-stage-object-reflection` | `inject2` | `false`
+`0x5a380 - 0x5a384` | `0x4` | `fix-stage-object-reflection` | `inject` | `false`
 `0x5a8fc - 0x5a900` | `0x4` | `fix-revolution-slot` | `injection` | `false`
 `0x74dd8 - 0x74ddc` | `0x4` | `remove-desert-haze` | `removal` | `false`
 `0xcac28 - 0xcac70` | `0x48` | `challenge-mode-death-count` | `visualCounterInject` | `true`
 `0x16aefc - 0x16af00` | `0x4` | `story-mode-char-select` | `preloadMonkeyInject3` | `false`
 `0x218b50 - 0x218b80` | `0x30` | `perfect-bonus-completion` | `perfectCheck` | `false`
+`0x218fd0 - 0x219010` | `0x40` | `fix-stage-object-reflection` | `effectBitflagCheck` | `false`
 `0x21b3b4 - 0x21b3c4` | `0x10` | `story-mode-char-select` | `getCurrentMonkeyId` | `false`
 `0x21c120 - 0x21c210` | `0xf0` | `story-mode-char-select` | `changeNextScreen` | `false`
 `0x21ad88 - 0x21add8` | `0x50` | `story-mode-music-fix` | `setLoopingParam` | `false`
@@ -49,6 +53,7 @@ Region | Size | Patch | Function/Variable | FixOverwrites Needed
 `0x6508 - 0x6518` | `0x10` | `challenge-mode-death-count` | `updateDeathCount` | `false`
 `0x8ae4 - 0x8ae8` | `0x4` | `story-mode-char-select` | `preloadMonkeyInject2` | `false`
 `0xb140 - 0xb144` | `0x4` | `story-mode-char-select` | `changeMonkeyInject` | `false`
+`0x1ff54 - 0x1ff58` | `0x4` | `fix-stage-object-reflection` | `inject3` | `false`
 `0x148b4 - 0x148b8` | `0x4` | `story-mode-char-select` | `preloadMonkeyInject` | `false`
 `0x34090 - 0x340b8` | `0x28` | `no-hurry-up-music` | `fixTimeOver` | `false`
 `0x75be0 - 0x75bf4` | `0x24` | `challenge-mode-death-count` | `getDeathCount` | `false`
@@ -58,4 +63,5 @@ Region | Size | Patch | Function/Variable | FixOverwrites Needed
 `0x75cb0 - 0x75ccc` | `0x1c` | `challenge-mode-death-count` | `specialVisualHandler` | `false`
 `0x75e20 - 0x75e30` | `0x10` | `story-mode-char-select` | `getCurrentMonkeyID` | `false`
 `0x75fe0 - 0x75ff0` | `0x10` | `story-mode-char-select` | `changeMonkey` | `false`
+`0x76000 - 0x76040` | `0x40` | `fix-stage-object-reflection` | `effectBitflagCheckVs` | `false`
 

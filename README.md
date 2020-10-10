@@ -15,6 +15,8 @@ These modifications fix or modify the game in ways that may be beneficial to tho
 | fix-labyrinth-camera | Fixes the lower-angle camera hardcoded to Labyrinth's level slot. |
 | challenge-mode-death-count | Challenge mode has infinite lives, and the life counter is converted into a counter that tracks the number of deaths. |
 | disable-how-to-play-screen | Disables the tutorial/ranking sequence that shows up when the player goes idle at the title screen. |
+| fix-wormhole-surfaces | Fixes an issue where wormhole surfaces do not appear on stage IDs 130 through 180, and stage ID 199. |
+| fix-stage-object-reflection | Fixes an issue where goal posts would not reflect properly, and makes any stage object with the effect bitflag 0x4 reflect in a reflective stage object. |
 
 ## Requirements
 In order to apply these modifications to a pack, you'll need TwixNinja's ppcinject and FixOverwrites programs:
@@ -45,6 +47,8 @@ Any files created with _temp in the name may be removed after executing the spec
 | fix-labyrinth-camera | `./PPCInject mkb2.main_loop.rel mkb2.main_loop_fixedlabyrinth.rel fix-labyrinth-camera.asm` |
 | challenge-mode-death-count | `./FixOverwrites mkb2.main_loop.rel 0x8033ad28 0x8033ad6c mkb2.main_loop_temp.rel` <br> `./PPCInject mkb2.main_loop_temp.rel mkb2.main_loop_deathcount.rel challenge-mode-death-count-mainloop.asm` <br> `./PPCInject mkb2.main_game.rel mkb2.main_game_deathcount.rel challenge-mode-death-count-maingame.asm` | 
 | disable-how-to-play-screen | `./PPCInject mkb2.main_loop.rel mkb2.main_loop_nohowtoplay.rel disable-how-to-play-screen.asm` |
+| fix-wormhole-surfaces | `./PPCInject mkb2.main_loop.rel mkb2.main_loop_wormholefix.rel fix-wormhole-surfaces.asm` |
+| fix-stage-object-reflection | `./PPCInject mkb2.main_loop.rel mkb2.main_loop_reflectionfix.rel fix-stage-object-reflection-mainloop.asm` <br> `./PPCInject mkb2.main_game.rel mkb2.main_game_reflectionfix.rel fix-stage-object-reflection-maingame.asm`  |
 
 ## Gecko Codes
 Some of these patches can also be applied using Gecko codes. This will result in the same functionality as these patches, albeit only when the code is active. These may also cause issues with party games, as they are not tied to the location of the currently loaded REL.
