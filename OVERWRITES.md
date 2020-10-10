@@ -30,6 +30,7 @@ Region | Size | Patch | Function/Variable | FixOverwrites Needed
 `0x26ec4 - 0x26ec8` | `0x4` | `perfect-bonus-completion` | `injection` | `true`
 `0x331a8 - 0x331ac` | `0x4` | `story-mode-music-fix` | `pauseMenuVolInject` | `false`
 `0x35b34 - 0x35b38` | `0x4` | `story-mode-music-fix` | `afterGoalInject` | `false`
+`0x35de8 - 0x35e0c` | `0x24` | `music-id-per-stage` | `worldBgmInject` | `true`
 `0x58be4 - 0x58be8` | `0x4` | `fix-wormhole-surfaces` | `injection1` | `false`
 `0x59334 - 0x59338` | `0x4` | `fix-stage-object-reflection` | `inject2` | `false`
 `0x5a380 - 0x5a384` | `0x4` | `fix-stage-object-reflection` | `inject` | `false`
@@ -39,9 +40,10 @@ Region | Size | Patch | Function/Variable | FixOverwrites Needed
 `0x16aefc - 0x16af00` | `0x4` | `story-mode-char-select` | `preloadMonkeyInject3` | `false`
 `0x218b50 - 0x218b80` | `0x30` | `perfect-bonus-completion` | `perfectCheck` | `false`
 `0x218fd0 - 0x219010` | `0x40` | `fix-stage-object-reflection` | `effectBitflagCheck` | `false`
-`0x21b3b4 - 0x21b3c4` | `0x10` | `story-mode-char-select` | `getCurrentMonkeyId` | `false`
-`0x21c120 - 0x21c210` | `0xf0` | `story-mode-char-select` | `changeNextScreen` | `false`
 `0x21ad88 - 0x21add8` | `0x50` | `story-mode-music-fix` | `setLoopingParam` | `false`
+`0x21b3b4 - 0x21b3c4` | `0x10` | `story-mode-char-select` | `getCurrentMonkeyId` | `false`
+`0x21b860 - 0x21bba0` | `0x350` | `music-id-per-stage` | Music List | `false`
+`0x21c120 - 0x21c210` | `0xf0` | `story-mode-char-select` | `changeNextScreen` | `false`
 
 
 ### mkb2.main_game.rel
