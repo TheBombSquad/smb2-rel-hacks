@@ -1,3 +1,6 @@
+# NOTE: THIS IS NO LONGER UPDATED!
+For a more convenient method of applying REL patches, as well as new/updated patches, see [ApeSphere-Custom](https://github.com/TheBombSquad/ApeSphere-Custom/)!
+
 # smb2-rel-hacks
 This is a collection of various modifications to the mkb2.main\_loop.rel and mkb2.main\_game.rel files in Super Monkey Ball 2.
 
